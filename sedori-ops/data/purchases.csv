@@ -1,0 +1,1 @@
+purchase_id,candidate_id,ordered_at,source_name,order_number,sku,qty,unit_price,shipping,points_jpy,total_cost,invoice_path,delivered_at,status,notes

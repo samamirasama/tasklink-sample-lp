@@ -1,0 +1,7 @@
+size_tier,max_length_cm,max_weight_g,fee_jpy,verified_on,source
+small_1,25,250,0,,"※サンプル。セラーセントラルの『FBA配送代行手数料』一覧を転記し、確認日と出典URLを必ず記入する"
+standard_1,35,1000,0,,
+standard_2a,45,2000,0,,
+standard_2b,60,2000,0,,
+standard_3,80,5000,0,,
+large_1,100,9000,0,,

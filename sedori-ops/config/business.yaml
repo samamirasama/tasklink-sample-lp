@@ -1,0 +1,112 @@
+# 事業設定ファイル（唯一の正）
+# 変更したら必ず `last_updated` を更新すること。エージェントはこの値を判断基準として使う。
+last_updated: "2026-09-28"
+owner_timezone: "Asia/Tokyo"
+
+business:
+  name: "（屋号を記入）"
+  legal_form: "individual"          # individual | corporation
+  start_stage: "preparing"          # preparing | trial | scaling
+  handles_used_goods: false         # 中古品を扱う場合 true（古物商許可が必要）
+  kobutsu_license:                  # 古物商許可
+    obtained: false
+    number: ""
+    issued_by: ""                   # 例: 東京都公安委員会
+  invoice_registered: false         # 適格請求書発行事業者（インボイス）登録の有無
+
+capital:
+  total_jpy: 300000                 # 仕入れに回せる総資金（要記入）
+  max_per_sku_jpy: 30000            # 1SKUあたり上限仕入れ額
+  max_per_order_jpy: 60000          # 1回の発注上限
+  reserve_ratio: 0.2                # 手元に残す予備率（返品・返金・広告費用）
+  fba_payout_cycle_days: 14         # FBA入金サイクル（目安）
+
+targets:                            # 月次目標（trial段階の初期値）
+  monthly_revenue_jpy: 300000
+  monthly_gross_profit_jpy: 60000
+  gross_margin_min: 0.15            # 粗利率の最低ライン
+  roi_min: 0.20                     # 投資利益率（粗利 / 仕入れ原価）の最低ライン
+  profit_per_unit_min_jpy: 500      # 1個あたり最低粗利
+  sell_through_days_max: 45         # 想定回転日数の上限
+
+sourcing:                           # 仕入れ先（電脳＝オンライン）
+  domestic_ec:
+    - name: "メーカー公式ストア"
+      notes: "転売禁止条項の有無を商品ごとに確認"
+    - name: "家電量販店EC（ヨドバシ・ビック・ヤマダ等）"
+      notes: "購入数量制限と会員規約を確認"
+    - name: "Yahoo!ショッピング"
+      notes: "ポイント還元を利益計算に含めるかは include_points で制御"
+    - name: "楽天市場"
+      notes: "転売目的購入は楽天の禁止事項。買い占め・大量購入を避け、店舗ごとの規約を確認。カード規約変更にも注意"
+  include_points_in_profit: false   # ポイント還元を利益に含めるか（保守的に false 推奨）
+  points_haircut: 0.5               # 含める場合の掛け目（失効・用途制限リスク）
+  excluded_sources:
+    - "個人間取引（フリマ）からの仕入れ"   # 古物扱いになる／請求書が出ない
+    - "海外仕入れ（輸入）"                  # 本基盤の対象外
+  invoice_required: true            # 仕入れ時に請求書・領収書（購入180日以内）を必ず保存
+
+selling_platforms:
+  amazon:
+    enabled: true
+    plan: "professional"            # professional(大口) | individual(小口)
+    fulfillment: "FBA"              # FBA | FBM
+    fee_rates_verified_on: ""       # セラーセントラルで手数料率を確認した日を記入（未確認なら空）
+    referral_fee_default: 0.104     # 参考値: 多くのカテゴリで 8〜15% + 2026-04-01改定で+0.4pt。カテゴリ別に必ず上書き
+    referral_fee_by_category:       # 例。実値はセラーセントラルで確認して記入
+      "家電＆カメラ": 0.084
+      "ホーム＆キッチン": 0.154
+      "おもちゃ": 0.104
+      "ドラッグストア": 0.104
+    fba_fulfillment_fee_table: "sedori-ops/config/fba_fees.sample.csv"
+    monthly_storage_fee_per_unit_jpy: 10   # 概算。実値は在庫サイズと季節で変動
+    prohibited_or_gated_categories_check: true
+  mercari_shops:
+    enabled: false                  # 出店審査に通ったら true
+    fee_rate: 0.10                  # 販売手数料10%（2026-09-28 検索結果ベース、要一次確認）
+    notes: "フリマアプリ「メルカリ」の個人アカウントでの事業出品は禁止（2025-10-22規約改定）"
+  yahoo_auction:
+    enabled: true
+    fee_rate: 0.10                  # 落札システム利用料（プレミアム会員時の率は要確認）
+    notes: "特定商取引法に基づく表示は事業者出品なら必要"
+
+shipping:
+  inbound_to_fba_per_unit_jpy: 120  # 自宅→FBA倉庫の1個あたり送料概算
+  packaging_per_unit_jpy: 30
+  return_rate_assumed: 0.03         # 想定返品率（利益計算で原価に乗せる）
+
+tools:
+  keepa:
+    enabled: false                  # 有料プラン契約後に true
+    plan: ""                        # 例: "個人 月額プラン"
+    api_enabled: false              # API利用（外部ツール開発者向け年額課金に注意）
+  sp_api:
+    enabled: false                  # 自社利用の開発者登録後に true
+  spreadsheets: "csv"               # csv | google_sheets
+
+research:
+  categories_focus:
+    - "家電アクセサリ"
+    - "日用品（消耗品・詰め替え）"
+    - "ホビー（プラモデル・パーティーグッズ等の規制外）"
+    - "キッチン用品"
+  categories_excluded:
+    - "医薬品・医療機器"
+    - "酒類"
+    - "食品・サプリ"
+    - "化粧品（薬機法・出品規制が多い）"
+    - "ブランド品・高額品（真贋リスク）"
+    - "チケット・金券"
+    - "本・DVD・ゲーム（メディア手数料区分と競争過多）"
+  max_fba_sellers: 8                # FBA出品者数がこれを超えたら見送り
+  min_rank_percentile: 0.10         # カテゴリ内ランキング上位10%以内
+  min_monthly_sales_estimate: 15    # 月間推定販売数（Keepa等の推定）
+  price_drop_lookback_days: 90      # 直近90日で値崩れ傾向があれば減点
+
+communication:
+  response_sla_hours: 24            # 購入者への一次返信期限
+  escalate_to_owner_when:
+    - "返金・キャンセル・交換の確定判断"
+    - "法令・規約に関わる指摘（真贋、偽物疑い、知財）"
+    - "低評価・クレームの2往復目以降"
+    - "仕入れ先への交渉（数量割引・卸条件）"
