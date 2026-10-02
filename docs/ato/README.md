@@ -16,10 +16,11 @@
 | `kit/pricing_test.md` | 試用終了時の価格選択テスト（3案、固定文、記録、判定の目安） |
 | `kit/compute_metrics.py` + `kit/events_sample.jsonl` | 試用のイベントログから指標（保存成功率、7日後利用、再利用率、実行率、整理率、通知）を分母つきで集計するスクリプトとサンプル |
 | `research/H_再確認_20261002.md` | 第2回再確認の結果（iOS 27、Foundation Models拡張、Appleリマインダーの提案機能、各社JPY価格、Instagram書き出し仕様） |
+| `research/I_公式本文確認_20261002.md` | 第4回：公式ページ本文による裏取り（Apple公式、Foundation Models、各社価格、名称）。前回との食い違い（端末内LLMは4,096トークン、Todoist・X・Cubox・mymindのJPY、Visual Intelligence）と01・02の修正箇所、取得失敗URL一覧 |
 | `research/A〜G` | 調査原本。各サービス19項目、出典URL、確認日、取得失敗URL、「検索結果要約で確認」「ページ取得で確認」の区別 |
 
 ## 読む前の注意
 - 確認日は2026年10月2日。価格・機能は同日時点。
 - 調査環境のネットワーク制限で、ほとんどの公式ホストの本文を取得できなかった。競合の機能・価格の大半は、Web検索結果に含まれる公式ページの要約で確認したもの。実機未試用。
-- 第1回調査ではWeb検索の回数上限に達したため未確認が多かった。第2回（research/H）で主要な価格・OS変更を再確認したが、公式ページ本文は依然として未取得。「未確認」は「非対応」ではない。
+- 第1回調査ではWeb検索の回数上限に達したため未確認が多かった。第2回（research/H）で主要な価格・OS変更を再確認したが、公式ページ本文は依然として未取得。第4回（research/I）でネットワーク設定変更後に Apple・Raindrop・Readwise・TickTick・Anybox・GoodLinks・Bear・App Store日本版の本文を取得して裏取りした（Todoist・Instapaper・Matter・Cubox・mymind・X・Instagramは引き続き本文未取得）。「未確認」は「非対応」ではない。
 - 本成果物は事業の成立を保証しない。
