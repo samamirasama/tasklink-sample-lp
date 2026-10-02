@@ -16,6 +16,7 @@
 | `kit/pricing_test.md` | 試用終了時の価格選択テスト（3案、固定文、記録、判定の目安） |
 | `09_代替A実施キット_少人数版.md` | 2〜3人でヒアリング→Apple リマインダー運用→事後面談を連続実施する手順、判定の目安、ショートカット版試作の設計 |
 | `10_開発環境_Macなしの選択肢.md` | Windowsのみの場合の5経路（ショートカット、Expo＋EAS、クラウドMac、Mac協力者、CI）と推奨順 |
+| `11_実施スケジュール_2026年10月.md` | 10月〜11月上旬の工程表（対象者確保、ヒアリング、代替A運用、事後面談、判定、Developer Program加入、ショートカット版配布） |
 | `kit/compute_metrics.py` + `kit/events_sample.jsonl` | 試用のイベントログから指標（保存成功率、7日後利用、再利用率、実行率、整理率、通知）を分母つきで集計するスクリプトとサンプル |
 | `research/H_再確認_20261002.md` | 第2回再確認の結果（iOS 27、Foundation Models拡張、Appleリマインダーの提案機能、各社JPY価格、Instagram書き出し仕様） |
 | `research/I_公式本文確認_20261002.md` | 第4回：公式ページ本文による裏取り（Apple公式、Foundation Models、各社価格、名称）。前回との食い違い（端末内LLMは4,096トークン、Todoist・X・Cubox・mymindのJPY、Visual Intelligence）と01・02の修正箇所、取得失敗URL一覧 |
