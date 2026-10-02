@@ -36,7 +36,7 @@
 - 計測（7章）：ローカルJSONLに追記。自動送信しない。
 
 ## 5. ユーザー回答（2026-10-02）と、それを踏まえた評価
-- 検証用iPhone：あり（機種・iOSバージョンは未回答。ショートカット版はiOS 17以降なら差し支えない見込み。Apple Intelligence の「提案」の有無は機種で変わるため、面談時に記録する）。
+- 検証用iPhone：**iPhone 13 Pro、iOSは最新（iOS 27）**。iOS 27 の対応機種（iPhone 11以降）に含まれるため、ショートカット版・Expo版・TestFlight はすべて使える。ただし **Apple Intelligence 非対応機種**（対応は iPhone 15 Pro／15 Pro Max、16以降、iPhone Air）のため、この端末では「共有→リマインダーの提案」「Visual Intelligence」「Foundation Models（端末内LLM）」は試せない。P2（端末内分類）の検証には対応機種の借用が必要。
 - 開発：**内製、JavaScript経験なし**。Apple Developer Program：10月中に加入。
 
 **経路2（Expo）の現実的な評価**
